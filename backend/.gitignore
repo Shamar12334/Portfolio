@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# Editor settings
+.vscode/
+.idea/
+
+# Byte-compiled / optimized / DLL files
+*.so
+
+# SQLite databases (if you use SQLite for testing)
+*.db
+*.sqlite3
