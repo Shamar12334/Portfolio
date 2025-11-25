@@ -1,45 +1,37 @@
-🚀 Full-Stack Portfolio Application
+# 🚀 Full-Stack Portfolio Application
 
 A production-ready React + FastAPI + PostgreSQL portfolio application designed to showcase Projects, Skills, About info, and Contact submissions through a modern full-stack architecture.
 
 This project demonstrates real software engineering ability: backend API design, database modeling, frontend development, API integration, and deployment.
 
-📌 Features
-⭐ Frontend (React + Vite + TailwindCSS)
+## 📌 Features
 
-Modern React app using Vite
+### ⭐ Frontend (React + Vite + TailwindCSS)
 
-Fast development + HMR
+- Modern React app using Vite
+- Fast development + HMR
+- TailwindCSS styling
+- Axios for API calls
+- Fully responsive portfolio UI (Projects, Skills, About, Contact)
+- Easy to deploy (Vercel / Netlify)
 
-TailwindCSS styling
+### ⭐ Backend (FastAPI + SQLAlchemy + PostgreSQL)
 
-Axios for API calls
+- Fully RESTful API
+- CRUD Operations for:
+  - ✔ About
+  - ✔ Skills
+  - ✔ Projects
+  - ✔ Contact messages
+- PostgreSQL database
+- Auto timestamping
+- Clean router structure
+- Pydantic v2 schemas
+- Swagger docs included
 
-Fully responsive portfolio UI (Projects, Skills, About, Contact)
+## 🗂️ Project Structure
 
-Easy to deploy (Vercel / Netlify)
-
-⭐ Backend (FastAPI + SQLAlchemy + PostgreSQL)
-
-Fully RESTful API
-
-CRUD Operations for:
-✔ About
-✔ Skills
-✔ Projects
-✔ Contact messages
-
-PostgreSQL database
-
-Auto timestamping
-
-Clean router structure
-
-Pydantic v2 schemas
-
-Swagger docs included
-
-🗂️ Project Structure
+```
 portfolio/
 │── backend/
 │     ├── app/
@@ -58,135 +50,159 @@ portfolio/
 │
 │── .gitignore
 │── README.md
+```
 
-⚙️ Backend Setup
-1️⃣ Create and activate virtual environment
+## ⚙️ Backend Setup
+
+### 1️⃣ Create and activate virtual environment
+
+```bash
 cd backend
 python3 -m venv venv
 source venv/bin/activate      # Mac/Linux
 venv\Scripts\activate         # Windows
+```
 
-2️⃣ Install dependencies
+### 2️⃣ Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-3️⃣ Configure database
+### 3️⃣ Configure database
 
-Located in: backend/app/core/database.py
+Located in: `backend/app/core/database.py`
 
+```python
 DATABASE_URL = "postgresql://username:password@localhost:5432/portfolio"
+```
 
-4️⃣ Run API server
+### 4️⃣ Run API server
+
+```bash
 uvicorn app.main:app --reload
+```
 
-
-API Docs:
+**API Docs:**  
 👉 http://127.0.0.1:8000/docs
 
-🎨 Frontend Setup
-1️⃣ Install dependencies
+## 🎨 Frontend Setup
+
+### 1️⃣ Install dependencies
+
+```bash
 cd frontend
 npm install
+```
 
-2️⃣ Run development server
+### 2️⃣ Run development server
+
+```bash
 npm run dev
+```
 
-
-Frontend runs at:
+**Frontend runs at:**  
 👉 http://localhost:5173
 
-🔌 API Endpoints
-📘 About
-Method	Endpoint	Description
-GET	/about/	Get about info
-POST	/about/	Create about info
-PUT	/about/{id}	Update about info
-DELETE	/about/{id}	Delete about section
-📗 Skills
-Method	Endpoint	Description
-GET	/skills/	Get all skills
-POST	/skills/	Add skill
-PUT	/skills/{id}	Update skill
-DELETE	/skills/{id}	Delete skill
-📙 Projects
-Method	Endpoint	Description
-GET	/projects/	Get all projects
-GET	/projects/{id}	Get single project
-POST	/projects/	Add project
-PUT	/projects/{id}	Update project
-DELETE	/projects/{id}	Delete project
-📕 Contact
-Method	Endpoint	Description
-GET	/contact/	Get all messages
-POST	/contact/	Submit user message
-DELETE	/contact/{id}	Delete message
-🌐 Connecting Frontend → Backend
+## 🔌 API Endpoints
 
-Create file:
+### 📘 About
 
-frontend/src/api.js
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/about/` | Get about info |
+| POST | `/about/` | Create about info |
+| PUT | `/about/{id}` | Update about info |
+| DELETE | `/about/{id}` | Delete about section |
 
+### 📗 Skills
 
-Add:
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/skills/` | Get all skills |
+| POST | `/skills/` | Add skill |
+| PUT | `/skills/{id}` | Update skill |
+| DELETE | `/skills/{id}` | Delete skill |
 
+### 📙 Projects
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/projects/` | Get all projects |
+| GET | `/projects/{id}` | Get single project |
+| POST | `/projects/` | Add project |
+| PUT | `/projects/{id}` | Update project |
+| DELETE | `/projects/{id}` | Delete project |
+
+### 📕 Contact
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/contact/` | Get all messages |
+| POST | `/contact/` | Submit user message |
+| DELETE | `/contact/{id}` | Delete message |
+
+## 🌐 Connecting Frontend → Backend
+
+Create file: `frontend/src/api.js`
+
+```javascript
 export const API_BASE = "http://127.0.0.1:8000";
-
+```
 
 Use example:
 
+```javascript
 import axios from "axios";
 import { API_BASE } from "./api";
 
 const res = await axios.get(`${API_BASE}/skills/`);
+```
 
-🚀 Deployment Guide
-Backend Deployment (Render / Railway / Fly.io)
+## 🚀 Deployment Guide
 
-Push backend folder to GitHub
+### Backend Deployment (Render / Railway / Fly.io)
 
-Deploy FastAPI service
+1. Push backend folder to GitHub
+2. Deploy FastAPI service
+3. Configure environment variables
+4. Deploy PostgreSQL database
+5. Update frontend API URL
 
-Configure environment variables
+### Frontend Deployment (Vercel / Netlify)
 
-Deploy PostgreSQL database
-
-Update frontend API URL
-
-Frontend Deployment (Vercel / Netlify)
+```bash
 npm run build
+```
 
-
-Deploy folder:
-
-dist/
-
+Deploy folder: `dist/`
 
 Environment variable:
-
+```
 VITE_API_URL=https://your-backend-url.com
+```
 
-🧪 Testing
-Backend Testing
+## 🧪 Testing
 
-Run Swagger UI:
+### Backend Testing
+
+Run Swagger UI:  
 👉 http://127.0.0.1:8000/docs
 
-Frontend Testing
+### Frontend Testing
 
 Use browser console + Network tab.
 
-👨‍💻 Author
+## 👨‍💻 Author
 
-Shamar Weekes
+**Shamar Weekes**  
 Full-Stack Developer • Cybersecurity • AI • FIU CS
 
+---
+
 This application demonstrates:
-
-Full-stack web engineering
-
-Database modeling + API architecture
-
-Professional frontend development
-
-Deployment-ready folder structure
-
-Real-world project development
+- Full-stack web engineering
+- Database modeling + API architecture
+- Professional frontend development
+- Deployment-ready folder structure
+- Real-world project development
