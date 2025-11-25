@@ -18,3 +18,5 @@ env/
 # SQLite databases (if you use SQLite for testing)
 *.db
 *.sqlite3
+.env
+.env.*
